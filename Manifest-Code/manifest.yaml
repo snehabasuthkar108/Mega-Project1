@@ -1,4 +1,4 @@
----
+
 # Secrets for MySQL
 apiVersion: v1
 kind: Secret
@@ -119,7 +119,7 @@ spec:
     spec:
       containers:
       - name: bankapp
-        image: adijaiswal/bankapp:latest
+        image: sneha108/bankapp:latest
         resources:
           requests:
             memory: "256Mi"
