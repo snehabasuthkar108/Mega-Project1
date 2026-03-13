@@ -48,6 +48,7 @@ kind: Deployment
 metadata:
   name: mysql
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: mysql
@@ -59,32 +60,38 @@ spec:
         app: mysql
     spec:
       containers:
-      - image: mysql:8
-        name: mysql
+      - name: mysql
+        image: mysql:8
+        imagePullPolicy: IfNotPresent
+
         resources:
           requests:
-            memory: "512Mi"
-            cpu: "500m"
+            cpu: "100m"
+            memory: "128Mi"
           limits:
-            memory: "1Gi"
-            cpu: "1"
+            cpu: "200m"
+            memory: "256Mi"
+
         env:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
               name: mysql-secret
               key: MYSQL_ROOT_PASSWORD
+
         - name: MYSQL_DATABASE
           valueFrom:
             configMapKeyRef:
               name: mysql-config
               key: MYSQL_DATABASE
+
         ports:
         - containerPort: 3306
-          name: mysql
+
         volumeMounts:
         - mountPath: /var/lib/mysql
           name: mysql-data
+
       volumes:
       - name: mysql-data
         persistentVolumeClaim:
@@ -119,21 +126,29 @@ spec:
     spec:
       containers:
       - name: bankapp
-        image: adijaiswal/bankapp:latest
+
+        # Use your image
+        image: sneha108/bankapp:latest
+        imagePullPolicy: Always
+
         resources:
           requests:
-            memory: "256Mi"
-            cpu: "250m"
+            cpu: "50m"
+            memory: "64Mi"
           limits:
-            memory: "512Mi"
-            cpu: "500m"
+            cpu: "100m"
+            memory: "128Mi"
+
         ports:
         - containerPort: 8080
+
         env:
         - name: SPRING_DATASOURCE_URL
           value: jdbc:mysql://mysql-service:3306/bankappdb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+
         - name: SPRING_DATASOURCE_USERNAME
           value: root
+
         - name: SPRING_DATASOURCE_PASSWORD
           valueFrom:
             secretKeyRef:
