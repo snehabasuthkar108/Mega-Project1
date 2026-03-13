@@ -116,7 +116,7 @@ resource "aws_eks_node_group" "sneha_node_group" {
     min_size     = 3
   }
 
-  instance_types = ["t3.micro"]
+  instance_types = ["t3.small"]
 
   remote_access {
     ec2_ssh_key = var.ssh_key_name
