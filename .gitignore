@@ -4,9 +4,6 @@
 *.tfstate.*
 .terraform.lock.hcl
 
-# Archives
-*.zip
+# downloads
 *.tar.gz
-
-# OS
-.DS_Store
+*.zip
