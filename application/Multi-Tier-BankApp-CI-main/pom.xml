@@ -83,7 +83,7 @@
 		<distributionManagement>
         <repository>
             <id>maven-releases</id>
-            <url>https://rhea-cokelike-chaffingly.ngrok-free.dev/nexus/repository/maven-releases//</url>
+            <url>https://rhea-cokelike-chaffingly.ngrok-free.dev/nexus/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
             <id>maven-snapshots</id>
