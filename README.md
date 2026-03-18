@@ -4,7 +4,7 @@ This project demonstrates a production-style DevOps architecture where a multi-t
 
 ---
 
-## Tech Stack
+## Tech Stack 
 
 AWS EKS  
 Terraform  
