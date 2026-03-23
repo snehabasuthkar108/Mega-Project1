@@ -8,7 +8,7 @@ The project covers infrastructure provisioning, containerization, Kubernetes dep
 ---
 
 ## Architecture Diagram
-![Architecture](docs/architecture.png)
+![Architecture](docs/Architecture.png)
 
 ---
 
