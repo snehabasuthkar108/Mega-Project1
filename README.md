@@ -1,70 +1,69 @@
 # Multi-Tier Banking Application Deployment on AWS EKS
 
-This project demonstrates a production-style DevOps architecture where a multi-tier banking application is deployed on Amazon EKS using Terraform and Kubernetes.
+## Project Overview
+This project demonstrates a production-style DevOps architecture where a multi-tier banking application is deployed on Amazon EKS using Terraform, Docker, and Kubernetes.
+
+The project covers infrastructure provisioning, containerization, Kubernetes deployment, persistent storage integration, and IAM OIDC configuration.
 
 ---
 
-## Tech Stack 
+## Architecture Diagram
+![Architecture](docs/architecture.png)
 
-AWS EKS  
-Terraform  
-Kubernetes  
-Docker  
-GitHub  
-CI/CD (planned)
+---
+
+## Tech Stack
+- AWS EKS
+- Terraform
+- Kubernetes
+- Docker
+- GitHub
+- IAM OIDC
+- AWS EBS CSI Driver
 
 ---
 
 ## Project Structure
-
-Manifest-Code/
-
-Kubernetes deployment manifests
-
-Terraform-Code/
-
-Infrastructure provisioning for EKS
-
-application/
-
-Bank application source code
-
-docs/
-
-Cluster setup documentation
+```
+application/              Bank application source code
+terraform/                Infrastructure provisioning for EKS
+kubernetes-manifests/     Kubernetes deployment manifests
+docs/                     Documentation and architecture diagrams
+```
 
 ---
 
-## Deployment Flow
-
-1. Provision infrastructure using Terraform
+## Deployment Workflow
+1. Provision AWS infrastructure using Terraform
 2. Configure kubectl using AWS CLI
 3. Associate IAM OIDC provider
-4. Deploy EBS CSI Driver
-5. Deploy application using Kubernetes manifests
+4. Install AWS EBS CSI Driver
+5. Build Docker image
+6. Deploy application to EKS using Kubernetes manifests
+7. Configure Ingress for external access
 
 ---
 
-## Key Features
-
-Infrastructure as Code using Terraform
-
-Containerized application deployment
-
-Kubernetes orchestration using EKS
-
-Persistent storage using AWS EBS CSI Driver
-
-Secure IAM integration with OIDC
+## Features
+- Infrastructure as Code using Terraform
+- Containerized application deployment
+- Kubernetes orchestration using Amazon EKS
+- Persistent storage using AWS EBS
+- IAM Role for Service Accounts (IRSA)
+- Horizontal Pod Autoscaler
+- Ingress Controller
 
 ---
 
-## Future Improvements
+## Future Enhancements
+- Jenkins CI/CD Pipeline
+- Prometheus & Grafana Monitoring
+- GitOps using ArgoCD
+- Blue-Green Deployment
+- Helm Charts
 
-Add Jenkins CI/CD pipeline
+---
 
-Add monitoring with Prometheus and Grafana
-
-Add Horizontal Pod Autoscaler
-
-Implement GitOps using ArgoCD
+## Author
+Sneha Basuthkar
+Senior Cloud Engineer | AWS | Kubernetes | Terraform | Docker
